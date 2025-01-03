@@ -1,0 +1,11 @@
+{
+  "name": "linked-list-practice",
+  "version": "1.0.0",
+  "description": "A simple module implementing a linked list",
+  "main": "linkedList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "McKathlin",
+  "license": "ISC"
+}
