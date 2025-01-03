@@ -36,6 +36,7 @@ export default (function() {
         if (currentNode.value == value) {
           return i;
         }
+        currentNode = currentNode.nextNode;
       }
       return null;
     }
