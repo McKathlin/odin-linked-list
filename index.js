@@ -6,7 +6,11 @@ myList.append('bar');
 myList.prepend('ice');
 console.log(myList.toString());
 console.log("size:", myList.size);
-console.log(myList.contains('bar'));
-console.log(myList.contains('foo'));
-console.log(myList.contains('ice'));
-console.log(myList.contains('cream'));
+
+console.log(myList.insertAt(1, "cream").toString());
+console.log("size:", myList.size);
+
+console.log(myList.removeAt(2));
+console.log("size:", myList.size);
+
+console.log(myList.toString());

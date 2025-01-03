@@ -101,6 +101,23 @@ export default (function() {
       }
       this._tail = newTail;
       this._size += 1;
+      return this;
+    }
+
+    insertAt(value, index) {
+      let newNext = this.nodeAt(index);
+      if (newNext) {
+        let newPrev = newNext.previousNode;
+        let newNode = new ListNode(value);
+        newNode.nextNode = newNext;
+        newNode.previousNode = newPrev;
+        this._size += 1;
+        return this;
+      } else if (index <= 0) {
+        return this.prepend(value);
+      } else {
+        return this.append(value);
+      }
     }
 
     prepend(value) {
@@ -113,6 +130,7 @@ export default (function() {
       }
       this._head = newHead;
       this._size += 1;
+      return this;
     }
 
     // Removal methods
@@ -126,6 +144,19 @@ export default (function() {
         }
         this._size -= 1;
         return poppedNode.value;
+      } else {
+        return null;
+      }
+    }
+
+    removeAt(index) {
+      let removedNode = this.nodeAt(index);
+      if (removedNode) {
+        let prev = removedNode.previousNode;
+        let next = removedNode.nextNode;
+        prev.nextNode = next;
+        this._size -= 1;
+        return removedNode.value;
       } else {
         return null;
       }
