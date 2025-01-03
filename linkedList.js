@@ -105,19 +105,20 @@ export default (function() {
     }
 
     insertAt(value, index) {
-      let newNext = this.nodeAt(index);
-      if (newNext) {
-        let newPrev = newNext.previousNode;
-        let newNode = new ListNode(value);
-        newNode.nextNode = newNext;
-        newNode.previousNode = newPrev;
-        this._size += 1;
-        return this;
-      } else if (index <= 0) {
+      if (index <= 0) {
         return this.prepend(value);
-      } else {
+      }
+      if (index >= this._size) {
         return this.append(value);
       }
+
+      let newNext = this.nodeAt(index);
+      let newPrev = newNext.previousNode;
+      let newNode = new ListNode(value);
+      newNode.nextNode = newNext;
+      newNode.previousNode = newPrev;
+      this._size += 1;
+      return this;
     }
 
     prepend(value) {
