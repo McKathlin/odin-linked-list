@@ -77,9 +77,9 @@ export default (function() {
         currentNode != null;
         currentNode = currentNode.nextNode
       ) {
-        stringBuilder.append(`( ${currentNode.value} )`);
+        stringBuilder.push(`( ${currentNode.value} )`);
       }
-      stringBuilder.append('null');
+      stringBuilder.push('null');
       return stringBuilder.join(' -> ');
     }
 
@@ -179,6 +179,6 @@ export default (function() {
     }
   }
 
-  return { LinkedList };
+  return LinkedList;
 }());
 
